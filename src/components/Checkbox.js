@@ -3,7 +3,7 @@ import React from "react";
 
 export const Checkbox = ({ id }) => {
   const archiveTask = () => {
-    firebase.firestore().collection("tasks").doc(id).update({
+    firebase.firestore().collection('tasks').doc(id).update({
       archived: true,
     });
   };
