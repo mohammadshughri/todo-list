@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Checkbox } from "./Checkbox";
 import { useTasks } from "../hooks";
 import { collatedTasks } from "../constants";
-import {
-  getTitle,
-  getCollatedTitle,
-  CollatedTasksExist,
-  collatedTasksExist,
-} from "../helpers";
+import { getTitle, getCollatedTitle, collatedTasksExist } from "../helpers";
 import { useSelectedProjectValue, useProjectsValue } from "../context";
 
 export const Tasks = () => {
