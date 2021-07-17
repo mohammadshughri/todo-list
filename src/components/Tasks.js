@@ -11,9 +11,11 @@ import {
 import { useSelectedProjectValue, useProjectsValue } from "../context";
 
 export const Tasks = () => {
+
   const { selectedProject } = useSelectedProjectValue();
   const { projects } = useProjectsValue();
   const { tasks } = useTasks(selectedProject);
+
 
   console.log(tasks);
 
@@ -41,6 +43,7 @@ export const Tasks = () => {
         {tasks.map((task) => (
           <li key={`${task.id}`}>
             <Checkbox id={task.id} />
+            <span>{task.task}</span>
           </li>
         ))}
       </ul>

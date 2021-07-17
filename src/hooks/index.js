@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { firebase } from '../firebase';
+import { firebase } from "../firebase";
 import { collatedTasksExist } from "../helpers";
 import moment from "moment";
 
@@ -41,8 +41,8 @@ export const useTasks = (selectedProject) => {
                 moment(task.date, "DD-MM-YYYY").diff(moment(), "days") <= 7 &&
                 task.archived !== true
             )
-           // else, filter the new tasks with an archive
-           : newTasks.filter((task) => task.archived !== true)
+          : // else, filter the new tasks with an archive
+            newTasks.filter((task) => task.archived !== true)
       );
 
       //return all the tasks true (archived)
@@ -63,7 +63,7 @@ export const useProjects = () => {
 
   useEffect(() => {
     firebase
-      .firebase()
+      .firestore()
       .collection("projects")
       .where("userId", "==", "j112")
       .orderBy("projectId")
