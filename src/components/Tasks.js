@@ -8,12 +8,12 @@ import {
   CollatedTasksExist,
   collatedTasksExist,
 } from "../helpers";
-import { useSelectedProjectValue, useProjectValue } from "../context";
+import { useSelectedProjectValue, useProjectsValue } from "../context";
 
 export const Tasks = () => {
   const { selectedProject } = useSelectedProjectValue();
+  const { projects } = useProjectsValue();
   const { tasks } = useTasks(selectedProject);
-  const { projects } = useProjectValue();
 
   console.log(tasks);
 
