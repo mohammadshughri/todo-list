@@ -1,16 +1,14 @@
 import { collatedTasks } from "../constants";
 
 export const getTitle = (projects, projectId) =>
-  project.find((project) => project.projectId === projectId);
+  projects.find((project) => project.projectId === projectId);
 
 export const getCollatedTitle = (projects, key) =>
-  project.find((project) => project.key === key);
+  projects.find((project) => project.key === key);
 
-// This will be the function used for the Inbox, today, and next 7 days
 export const collatedTasksExist = (selectedProject) =>
   collatedTasks.find((task) => task.key === selectedProject);
 
-// This function creates a random generated ID
 export const generatePushId = (() => {
   const PUSH_CHARS =
     "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
