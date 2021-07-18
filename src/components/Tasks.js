@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Checkbox } from "./Checkbox";
 import { useTasks } from "../hooks";
 import { collatedTasks } from "../constants";
@@ -9,9 +9,6 @@ export const Tasks = () => {
   const { selectedProject } = useSelectedProjectValue();
   const { projects } = useProjectsValue();
   const { tasks } = useTasks(selectedProject);
-
-
-  console.log(tasks);
 
   let projectName = "";
 
@@ -26,8 +23,9 @@ export const Tasks = () => {
   }
 
   useEffect(() => {
-    document.title = `${projectName}: Todist`;
-  }, []);
+    document.title = `${projectName}: Todoist`;
+  });
+  console.log("tasks", tasks);
 
   return (
     <div className="tasks" data-testid="tasks">
@@ -36,7 +34,7 @@ export const Tasks = () => {
       <ul className="tasks__list">
         {tasks.map((task) => (
           <li key={`${task.id}`}>
-            <Checkbox id={task.id} />
+            <Checkbox id={task.id} taskDesc={task.task} />
             <span>{task.task}</span>
           </li>
         ))}
